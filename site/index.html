@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Rogue&amp;Co Storefront</title>
+<meta name="description" content="Rogue&amp;Co makes artist-drawn graphic tees in limited runs, plus shirts, jeans and European linen built to last.">
+<meta name="theme-color" content="#0D1222">
+<meta name="color-scheme" content="dark">
+
+<!-- Social sharing previews -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Rogue&amp;Co Storefront">
+<meta property="og:description" content="Artist-drawn graphic tees in limited runs, plus shirts, jeans and European linen built to last.">
+<meta property="og:image" content="/images/hero.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Installable app (PWA) -->
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Rogue&amp;Co">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="g-brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1F2A44"/><stop offset=".18" stop-color="#3B2F5C"/><stop offset=".36" stop-color="#8C2F39"/><stop offset=".54" stop-color="#D2542B"/><stop offset=".7" stop-color="#E6A23C"/><stop offset=".85" stop-color="#C8B49A"/><stop offset="1" stop-color="#F2EBDF"/>
+    </linearGradient>
+    <linearGradient id="g-sun" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E6A23C"/><stop offset=".55" stop-color="#D2542B"/><stop offset="1" stop-color="#8C2F39"/>
+    </linearGradient>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 12h15M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9l6 6 6-6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l12.5-7.5z"/></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="currentColor" d="M13 2L4 14h7l-1 8 9-12h-7z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.5 12l2.5 2.5 4.5-5"/></symbol>
+    <symbol id="i-tee" viewBox="0 0 300 300"><path d="M95 42l36-12c5 14 12 22 19 22s14-8 19-22l36 12 55 40-26 42-24-14v157H90V110l-24 14-26-42z"/></symbol>
+  </defs>
+</svg>
+
+<a class="sr" href="#main">Skip to content</a>
+
+<!-- 1. NAVIGATION -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#top" aria-label="Rogue&amp;Co home">Rogue<em>&amp;</em>Co</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#features">Graphic Tees</a></li>
+        <li><a href="#features">Shirts</a></li>
+        <li><a href="#features">Jeans</a></li>
+        <li><a href="#features">Linen</a></li>
+        <li><a href="#pricing">Rogue Club</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a class="signin" href="#pricing">Sign In</a>
+      <a class="btn btn-primary" href="#features">Shop the Drop</a>
+      <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="drawer-back" id="drawerBack"></div>
+<aside class="drawer" id="drawer" aria-label="Menu" aria-hidden="true">
+  <div class="drawer-top">
+    <span class="logo">Rogue<em>&amp;</em>Co</span>
+    <button class="icon-btn" id="drawerClose" aria-label="Close menu"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <a class="dl" href="#features">Graphic Tees</a>
+  <a class="dl" href="#features">Shirts</a>
+  <a class="dl" href="#features">Jeans</a>
+  <a class="dl" href="#features">Linen</a>
+  <a class="dl" href="#pricing">Rogue Club</a>
+  <a class="dl" href="#pricing">Sign In</a>
+  <a class="btn btn-primary" href="#features">Shop the Drop</a>
+</aside>
+
+<main id="main">
+<!-- 2. HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="pill"><span class="dot"><svg><use href="#i-bolt"/></svg></span>Drop 07 is live · only 300 of each print</span>
+      <h1>Wear the <span class="grad">attitude.</span> Keep the comfort. Retire the fast-fashion tee.</h1>
+      <p class="hero-sub">Artist-drawn graphic tees on 220 GSM cotton, plus shirts, jeans and European linen cut to fit right and outlast five-wash basics.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#features">Shop the Drop <svg width="18" height="18"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-secondary" href="#lookbook"><svg width="16" height="16"><use href="#i-play"/></svg> See the Lookbook</a>
+      </div>
+      <p class="micro">Free shipping over $75 • Free 30-day returns • Size swaps on us</p>
+      <div class="trust">
+        <span class="trust-label">What we work with</span>
+        <div class="fabric-bar"><span>220 GSM Cotton</span><span>13.5 oz Denim</span><span>European Flax Linen</span><span>Organic Poplin</span><span>Water-based Inks</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stage" >
+        <svg class="tee" viewBox="0 0 300 300" aria-hidden="true">
+          <use href="#i-tee" fill="#F2EBDF"/>
+          <path d="M131 30c5 14 12 22 19 22s14-8 19-22" fill="none" stroke="#C8B49A" stroke-width="4"/>
+          <clipPath id="sunclip"><circle cx="150" cy="150" r="42"/></clipPath>
+          <circle cx="150" cy="150" r="42" fill="url(#g-sun)"/>
+          <g clip-path="url(#sunclip)" fill="#F2EBDF"><rect x="100" y="158" width="100" height="4"/><rect x="100" y="168" width="100" height="5"/><rect x="100" y="179" width="100" height="7"/></g>
+          <path d="M104 196c12-8 22-8 34 0s22 8 34 0 22-8 30-2" fill="none" stroke="#1F2A44" stroke-width="3" stroke-linecap="round"/>
+          <text x="150" y="228" text-anchor="middle" font-family="DM Serif Display,Georgia,serif" font-size="17" fill="#1F2A44" letter-spacing="3">NIGHT TIDE</text>
+        </svg>
+        <img class="ph" src="images/hero.jpg" alt="Model on an airfield in a navy graphic tee and grey jeans" style="object-position:center 35%" onerror="this.remove()">
+        <div class="chip c1"><b>Drop 07 · Night Tide</b>Artist series, print 3 of 5</div>
+        <div class="chip c3"><b>220 GSM</b>heavyweight cotton</div>
+        <div class="chip c2"><b class="num" id="leftCount">142 of 300 left</b><div class="meter"><i></i></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track">
+  <span>Drop 07 · Night Tide</span><span>300 pieces per print</span><span>Free size swaps for Insiders</span><span>European flax linen</span><span>13.5 oz denim</span><span>Water-based inks</span>
+  <span>Drop 07 · Night Tide</span><span>300 pieces per print</span><span>Free size swaps for Insiders</span><span>European flax linen</span><span>13.5 oz denim</span><span>Water-based inks</span>
+</div></div>
+
+<section class="section" id="shop">
+  <div class="wrap">
+    <div class="sec-head" style="grid-template-columns:1fr auto;align-items:end">
+      <div style="display:grid;gap:14px"><span class="eyebrow">Shop by category</span><h2>Four Staples, One Attitude</h2></div>
+      <a class="btn btn-ghost" href="#features">See what makes them different →</a>
+    </div>
+    <div class="cats">
+      <a class="cat" href="#features"><img class="ph" src="images/tees.jpg" alt="Two models wearing black graphic t-shirts" onerror="this.remove()"><div class="cat-body"><small>Limited runs</small><b>Graphic Tees</b><span>From $42 →</span></div></a>
+      <a class="cat" href="#features"><img class="ph" src="images/rack.jpg" alt="Linen and cotton shirts on hangers" onerror="this.remove()"><div class="cat-body"><small>Organic poplin</small><b>Shirts</b><span>From $68 →</span></div></a>
+      <a class="cat" href="#features"><img class="ph" src="images/jeans.jpg" alt="Stack of folded blue jeans" onerror="this.remove()"><div class="cat-body"><small>13.5 oz denim</small><b>Jeans</b><span>From $89 →</span></div></a>
+      <a class="cat" href="#features"><img class="ph" src="images/linen.jpg" alt="White linen shirt drying on a clothesline" onerror="this.remove()"><div class="cat-body"><small>European flax</small><b>Linen</b><span>From $74 →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- 3. PROBLEM -->
+<section class="section problem" id="problem">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The problem with the tee drawer</span>
+      <h2>Still Buying Tees That Fade, Miss the Fit, and Get Sent Back?</h2>
+    </div>
+    <div class="pain-grid">
+      <article class="pain rise">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 6l-8 5 4 7 4-2v18h14V16l4 2 4-7-8-5c-1 4-4 6-7 6s-6-2-7-6z"/><path d="M16 22h8M16 27h5" stroke-dasharray="2 3"/></svg>
+        <h4>Worn Out, Thrown Out</h4>
+        <div class="stat num">36%</div>
+        <p>The average garment is now worn far fewer times before it is thrown away. Thin fabric and cracking prints turn a new tee into a rag.</p>
+        <cite>Drop in the number of times a garment is worn over 15 years. Ellen MacArthur Foundation, <a href="https://www.ellenmacarthurfoundation.org/a-new-textiles-economy">A New Textiles Economy</a> (2017)</cite>
+      </article>
+      <article class="pain rise">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30h30M8 30v-4M14 30v-6M20 30v-4M26 30v-6M32 30v-4"/><path d="M12 16l8-8 8 8"/><path d="M20 8v12"/></svg>
+        <h4>Fits That Guess</h4>
+        <div class="stat num">53%</div>
+        <p>Size charts that say "M" and mean anything. Jeans that fit in the waist and fail at the thigh. Fit is the top reason clothes go back.</p>
+        <cite>of apparel retailers name size and fit as the #1 return reason. <a href="https://coresight.com/research/the-true-cost-of-apparel-returns-alarming-return-rates-require-loss-minimization-solutions/">Coresight Research</a> (2023)</cite>
+      </article>
+      <article class="pain rise">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="28" height="20" rx="2"/><path d="M6 18h28M14 12V8h12v4"/><path d="M17 25l-3-3 3-3M14 22h10"/></svg>
+        <h4>The Return Loop</h4>
+        <div class="stat num">24.4%</div>
+        <p>Almost one in four clothing orders bought online is returned. That means reprinting labels, queueing at drop-offs and waiting on refunds.</p>
+        <cite>US online apparel return rate. <a href="https://coresight.com/research/the-true-cost-of-apparel-returns-alarming-return-rates-require-loss-minimization-solutions/">Coresight Research</a> (2023)</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 4. SOLUTION -->
+<section class="section solution" id="solution">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Our approach</span>
+      <h2>Clothing Made Like Your Favorite Tee, the One You Never Throw Out</h2>
+    </div>
+    <div class="narrative">
+      <p>Everyone owns one: the shirt that got better with every wash, fit like it was measured on you, and still gets compliments. Rogue&amp;Co exists to make <strong>every piece that shirt</strong>.</p>
+      <p>We start with the fabric, not the trend. Heavyweight cotton for the graphics, denim that breaks in, and linen that breathes. Then we <strong>cut to real body measurements</strong> and print artist-drawn designs in small runs with water-based inks that move with the cotton instead of cracking.</p>
+      <p>The result is a smaller wardrobe that works harder: <strong>fewer returns, fewer replacements, and more days you actually like what you're wearing.</strong></p>
+    </div>
+    <div class="compare rise">
+      <div class="side before">
+        <h4>The usual tee</h4>
+        <div class="mini" aria-hidden="true"><svg viewBox="0 0 300 300" width="96" height="96"><use href="#i-tee" fill="none" stroke="currentColor" stroke-width="6" stroke-dasharray="10 10" opacity=".45"/></svg></div>
+        <ul>
+          <li><svg><use href="#i-x"/></svg>140 GSM, see-through by summer</li>
+          <li><svg><use href="#i-x"/></svg>Plastisol print cracks after a few washes</li>
+          <li><svg><use href="#i-x"/></svg>One-size-fits-nobody grading</li>
+          <li><svg><use href="#i-x"/></svg>Same graphic as 40,000 other people</li>
+        </ul>
+      </div>
+      <div class="arrow" aria-hidden="true"><svg><use href="#i-arrow"/></svg></div>
+      <div class="side after">
+        <h4>A Rogue&amp;Co tee</h4>
+        <div class="mini" aria-hidden="true"><svg viewBox="0 0 300 300" width="96" height="96"><use href="#i-tee" fill="#F2EBDF"/><circle cx="150" cy="150" r="30" fill="url(#g-sun)"/></svg></div>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>220 GSM combed cotton, pre-shrunk</li>
+          <li><svg><use href="#i-check"/></svg>Water-based inks that soften, not crack</li>
+          <li><svg><use href="#i-check"/></svg>Graded on real measurements, with a Fit Finder</li>
+          <li><svg><use href="#i-check"/></svg>300 per print, then the design retires</li>
+        </ul>
+      </div>
+    </div>
+    <div class="uvp rise">
+      <svg><use href="#i-shield"/></svg>
+      <p><b>The difference</b>Unlike fast-fashion basics, every Rogue&amp;Co graphic is a numbered, limited run on fabric built for 100+ washes. You get the statement and the staple in one shirt.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5. FEATURES -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">The line-up</span>
+      <h2>Four Categories. One Standard.</h2>
+      <p class="lede">Each collection has its own job in your week. They all share the same rule: fabric first, fit second, trend last.</p>
+    </div>
+    <div class="feat-list">
+      <!-- Feature 1 -->
+      <article class="feat rise">
+        <div class="feat-text">
+          <div class="feat-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 5l-6 4 3 5 3-2v15h12V12l3 2 3-5-6-4c-1 3-3 4-6 4s-5-1-6-4z"/><circle cx="16" cy="18" r="3"/></svg></div>
+          <h3>Artist-Drawn Graphic Tees</h3>
+          <p>Every design comes from an independent illustrator, printed in a numbered run of 300 and then retired for good. You wear something with a story, and you won't see it on the next person in line. Artists earn a royalty on every shirt sold.</p>
+          <span class="metric"><b class="num">300</b><span>pieces per print, never restocked</span></span>
+        </div>
+        <div class="feat-media" role="img" aria-label="Three graphic tees in indigo, oxblood and cream on a sand backdrop">
+          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="450" fill="#C8B49A"/>
+            <circle cx="480" cy="80" r="150" fill="#E6A23C" opacity=".35"/>
+            <g transform="translate(20 110) scale(.9)"><use href="#i-tee" fill="#1F2A44"/><circle cx="150" cy="150" r="30" fill="#E6A23C"/></g>
+            <g transform="translate(160 60) scale(1.05)"><use href="#i-tee" fill="#8C2F39"/><path d="M120 170l30-50 30 50z" fill="#F2EBDF"/></g>
+            <g transform="translate(340 110) scale(.9)"><use href="#i-tee" fill="#F2EBDF"/><circle cx="150" cy="150" r="30" fill="url(#g-sun)"/></g>
+          </svg>
+          <img class="ph" src="images/folded.jpg" alt="Folded tees in red, black, white, navy and yellow" loading="lazy" onerror="this.remove()">
+          <span class="tag">Six colorways per drop</span>
+        </div>
+      </article>
+      <!-- Feature 2 -->
+      <article class="feat rise">
+        <div class="feat-text">
+          <div class="feat-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M11 4l-7 4 3 6 3-2v16h12V12l3 2 3-6-7-4-5 5z"/><path d="M16 9v19M14 14h0M14 19h0M14 24h0" stroke-linecap="round" stroke-width="2.4"/></svg></div>
+          <h3>Shirts With a Sharper Cut</h3>
+          <p>Oxfords, overshirts and camp collars in organic poplin and brushed twill. The shoulders sit where yours do, the hem works tucked or untucked, and the collar holds its shape without a stay. Layer one over a graphic tee and the outfit is done.</p>
+          <span class="metric"><b class="num">6</b><span>body-measured sizes, XS to XXL</span></span>
+        </div>
+        <div class="feat-media" role="img" aria-label="An indigo button-up shirt against a plum backdrop">
+          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="450" fill="#3B2F5C"/>
+            <rect x="0" y="300" width="600" height="150" fill="#1F2A44"/>
+            <g transform="translate(150 60) scale(1.1)">
+              <path d="M95 42l36-12 19 30 19-30 36 12 55 40-26 42-24-14v157H90V110l-24 14-26-42z" fill="#F2EBDF"/>
+              <path d="M131 30l19 30 19-30" fill="none" stroke="#C8B49A" stroke-width="5"/>
+              <path d="M150 60v205" stroke="#C8B49A" stroke-width="3"/>
+              <g fill="#8C2F39"><circle cx="158" cy="90" r="4"/><circle cx="158" cy="130" r="4"/><circle cx="158" cy="170" r="4"/><circle cx="158" cy="210" r="4"/></g>
+              <rect x="105" y="115" width="30" height="26" rx="3" fill="none" stroke="#C8B49A" stroke-width="3"/>
+            </g>
+          </svg>
+          <img class="ph" src="images/rack.jpg" alt="Shirts hanging on a rail" loading="lazy" onerror="this.remove()">
+          <span class="tag">Oxfords &amp; overshirts</span>
+        </div>
+      </article>
+      <!-- Feature 3 -->
+      <article class="feat rise">
+        <div class="feat-text">
+          <div class="feat-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M9 4h14l2 24h-6l-3-15-3 15H7z"/><path d="M9 8h14"/></svg></div>
+          <h3>Jeans That Break In, Not Down</h3>
+          <p>Cone-dyed 13.5 oz denim in slim, straight and relaxed cuts, each with a measured rise and inseam. The fabric fades to fit your life over months, and the chain-stitched hems and bar-tacked pockets are built for years of wear.</p>
+          <span class="metric"><b class="num">13.5 oz</b><span>mid-weight denim, all-season</span></span>
+        </div>
+        <div class="feat-media" role="img" aria-label="A pair of indigo jeans against an ochre backdrop">
+          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="450" fill="#E6A23C"/>
+            <path d="M0 450L600 250V450z" fill="#D2542B" opacity=".5"/>
+            <g transform="translate(200 40)">
+              <path d="M20 10h160l20 360h-78l-22-230-22 230H0z" fill="#1F2A44"/>
+              <path d="M20 40h160" stroke="#C8B49A" stroke-width="3" stroke-dasharray="6 5"/>
+              <path d="M40 40c0 30 20 45 50 45M160 40c0 30-20 45-50 45" fill="none" stroke="#3B2F5C" stroke-width="4"/>
+              <circle cx="100" cy="26" r="6" fill="#C8B49A"/>
+              <path d="M3 350h72M125 350h72" stroke="#C8B49A" stroke-width="3" stroke-dasharray="6 5"/>
+            </g>
+          </svg>
+          <img class="ph" src="images/jeans.jpg" alt="Folded blue jeans" loading="lazy" onerror="this.remove()">
+          <span class="tag">Straight fit · Raw indigo</span>
+        </div>
+      </article>
+      <!-- Feature 4 -->
+      <article class="feat rise">
+        <div class="feat-text">
+          <div class="feat-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M16 28V12M16 12c0-5 4-8 9-8 0 5-4 8-9 8zM16 18c0-4-3-7-8-7 0 4 3 7 8 7z"/></svg></div>
+          <h3>European Linen for Hot Days</h3>
+          <p>Shirts and trousers woven from European flax, garment-washed so they arrive soft instead of stiff. Linen pulls moisture away from the skin and dries fast, so you stay cool when it's humid. The wrinkles are part of the look.</p>
+          <span class="metric"><b class="num">100%</b><span>European flax, garment-washed</span></span>
+        </div>
+        <div class="feat-media" role="img" aria-label="A sand-colored linen shirt against a cream backdrop with a sun">
+          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <rect width="600" height="450" fill="#F2EBDF"/>
+            <circle cx="470" cy="110" r="70" fill="url(#g-sun)" opacity=".85"/>
+            <g stroke="#C8B49A" stroke-width="2" opacity=".6"><path d="M0 330h600M0 345h600M0 360h600M0 375h600M0 390h600M0 405h600M0 420h600M0 435h600"/></g>
+            <g transform="translate(110 60) scale(1.1)">
+              <path d="M95 42l36-12 19 30 19-30 36 12 55 40-26 42-24-14v157H90V110l-24 14-26-42z" fill="#C8B49A"/>
+              <path d="M131 30l19 30 19-30" fill="none" stroke="#F2EBDF" stroke-width="5"/>
+              <path d="M150 60v205" stroke="#F2EBDF" stroke-width="3"/>
+              <g stroke="#B3A084" stroke-width="2" fill="none"><path d="M100 140c20 6 30-4 40 2M165 180c15 4 25-6 38 0M105 220c15-4 22 6 34 0"/></g>
+            </g>
+          </svg>
+          <img class="ph" src="images/linen.jpg" alt="White linen shirt hanging from a branch" loading="lazy" onerror="this.remove()">
+          <span class="tag">Camp-collar linen shirt</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. COST-PER-WEAR CALCULATOR (ROI equivalent) -->
+<section class="section" id="calculator">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Cost-per-wear calculator</span>
+      <h2>See What a Better Tee Saves You in a Year</h2>
+      <p class="lede">The price tag is only half the story. Divide what you pay by how many washes a shirt survives, and cheap tees often cost more.</p>
+    </div>
+    <div class="calc">
+      <div class="calc-grid">
+        <form class="calc-in" id="calcForm" novalidate>
+          <div class="field">
+            <label for="rot">Tees in your rotation <output id="rotOut" for="rot">6</output></label>
+            <input type="range" id="rot" min="1" max="30" value="6">
+          </div>
+          <div class="field">
+            <label for="price">What you usually pay per tee</label>
+            <div class="money"><span>$</span><input class="input num" id="price" type="text" inputmode="decimal" value="15" aria-describedby="priceErr"></div>
+            <span class="err" id="priceErr" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="wears">Times you wear each tee per month</label>
+            <input class="input num" id="wears" type="number" min="1" max="20" value="4" aria-describedby="wearsErr">
+            <span class="err" id="wearsErr" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="life">Washes before it looks worn out <output id="lifeOut" for="life">15</output></label>
+            <input type="range" id="life" min="5" max="60" value="15">
+            <small>Rogue&amp;Co tees are built and tested for 100 washes at $42.</small>
+          </div>
+        </form>
+        <div class="calc-out" aria-live="polite">
+          <div>
+            <span class="eyebrow" id="bigLabel">You'd save each year</span>
+            <div class="big" id="big">$0</div>
+          </div>
+          <dl class="breakdown">
+            <div><dt>Wears per year</dt><dd id="oWears">0</dd></div>
+            <div><dt>Cost per wear, your tees</dt><dd id="oCpwFF">$0</dd></div>
+            <div><dt>Cost per wear, Rogue&amp;Co</dt><dd id="oCpwRC">$0</dd></div>
+            <div><dt>Tees kept out of the bin</dt><dd id="oBin">0</dd></div>
+          </dl>
+          <div class="bars" aria-hidden="true">
+            <div class="bar-row"><span>Your tees</span><div class="bar-track"><div class="bar-fill ff" id="barFF"></div></div><b id="bFF">$0</b></div>
+            <div class="bar-row"><span>Rogue&amp;Co</span><div class="bar-track"><div class="bar-fill rc" id="barRC"></div></div><b id="bRC">$0</b></div>
+          </div>
+        </div>
+      </div>
+      <form class="lead" id="leadForm" novalidate>
+        <label for="leadEmail" style="font-weight:600">Get your personal fit and cost report</label>
+        <div class="lead-row">
+          <input class="input" id="leadEmail" type="email" placeholder="you@email.com" autocomplete="email">
+          <button class="btn btn-primary" type="submit">Email My Fit Report</button>
+        </div>
+        <span class="err" id="leadErr" role="alert"></span>
+        <p class="note">Assumes one wash per wear. This prototype stores nothing and sends no email.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- 7. SOCIAL PROOF -->
+<section class="section proof" id="stories">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Drop stories</span>
+      <h2>Proof Is in the Rotation</h2>
+      <span class="sample-tag" style="margin-inline:auto">Sample reviews and figures: placeholder copy for this prototype</span>
+    </div>
+    <article class="case rise">
+      <div class="case-art"><img class="ph" src="images/tees.jpg" style="object-position:center 30%" alt="" loading="lazy" onerror="this.remove()"><div class="drop"><small>Drop 05 · Artist series</small>Tide &amp;<br>Riot</div></div>
+      <div class="case-body">
+        <span class="muted" style="font-size:.875rem">Featured drop · Screen-printed graphic tee · 300 pieces</span>
+        <div class="results">
+          <div><b class="num">72 hrs</b><span>to sell out</span></div>
+          <div><b class="num">4.9/5</b><span>average fit rating</span></div>
+          <div><b class="num">6%</b><span>return rate</span></div>
+        </div>
+        <blockquote>"I bought it for the print and kept wearing it for the fabric. Forty washes in and the ink looks better than the day it arrived."</blockquote>
+        <p class="who">Sample customer · Graphic designer · Miami, FL</p>
+        <a href="#features">Read the full drop story →</a>
+      </div>
+    </article>
+    <div class="testis">
+      <article class="testi rise"><span class="mono">J</span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>"The Fit Finder put me in a medium for the first time in years. It's right."</p><span class="who">Sample reviewer · Straight-fit jeans</span></article>
+      <article class="testi rise"><span class="mono">A</span><span class="stars" aria-label="5 out of 5 stars">★★★★★</span><p>"Linen shirt survived a week in Goa humidity and still looked sharp at dinner."</p><span class="who">Sample reviewer · Camp-collar linen</span></article>
+      <article class="testi rise"><span class="mono">M</span><span class="stars" aria-label="4 out of 5 stars">★★★★☆</span><p>"Heavier than I expected, in a good way. The oxford over the Night Tide tee is my uniform now."</p><span class="who">Sample reviewer · Oxford shirt</span></article>
+    </div>
+    <div class="statbar">
+      <div><b data-count="7">0</b><span>drops released</span></div>
+      <div><b data-count="2100">0</b><span>limited pieces sold</span></div>
+      <div><b data-count="94" data-suffix="%">0</b><span>fit-rating satisfaction</span></div>
+      <div><b data-count="18">0</b><span>independent artists paid</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PRICING (Rogue Club) -->
+<section class="section" id="pricing">
+  <div class="wrap wide">
+    <div class="sec-head center">
+      <span class="eyebrow">Rogue Club</span>
+      <h2>Pick How Close You Want to Be to the Drop</h2>
+      <p class="lede">Shopping is always open to everyone. Membership gets you in earlier, saves you money, and makes swaps easier.</p>
+      <div class="toggle"><span id="lblM">Monthly</span><button class="switch" id="billing" role="switch" aria-checked="true" aria-labelledby="lblA"></button><span id="lblA">Yearly</span><span class="save">2 months free</span></div>
+    </div>
+    <div class="tiers">
+      <article class="tier">
+        <div><h3>Crew</h3><p class="for">For first-timers and casual shoppers</p></div>
+        <div class="price"><b class="num">Free</b></div>
+        <p class="price-note">&nbsp;</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Shop every drop at launch</li>
+          <li><svg><use href="#i-check"/></svg>Free shipping over $75</li>
+          <li><svg><use href="#i-check"/></svg>30-day free returns</li>
+          <li><svg><use href="#i-check"/></svg>Fit Finder and saved sizes</li>
+          <li><svg><use href="#i-check"/></svg>Drop alerts by email</li>
+          <li><svg><use href="#i-check"/></svg>1 account, order history</li>
+        </ul>
+        <a class="btn btn-secondary" href="#calculator">Join Free</a>
+      </article>
+      <article class="tier pop">
+        <span class="badge">Most popular</span>
+        <div><h3>Insider</h3><p class="for">For people who don't want to miss a print</p></div>
+        <div class="price"><b class="num" data-m="$8" data-y="$80">$80</b><span data-m="/month" data-y="/year">/year</span></div>
+        <p class="price-note" id="insNote">You save $16 compared with monthly</p>
+        <ul>
+          <li class="plus"><svg><use href="#i-check"/></svg>Everything in Crew, plus:</li>
+          <li><svg><use href="#i-check"/></svg>24-hour early access to every drop</li>
+          <li><svg><use href="#i-check"/></svg>10% off all orders</li>
+          <li><svg><use href="#i-check"/></svg>Free shipping on every order</li>
+          <li><svg><use href="#i-check"/></svg>Free size swaps, shipping paid both ways</li>
+          <li><svg><use href="#i-check"/></svg>Members-only graphic each season</li>
+          <li><svg><use href="#i-check"/></svg>Artist live-sketch sessions</li>
+          <li><svg><use href="#i-check"/></svg>Birthday credit</li>
+        </ul>
+        <a class="btn btn-primary" href="#calculator">Start 30-Day Free Trial</a>
+      </article>
+      <article class="tier">
+        <div><h3>Crew Orders</h3><p class="for">For teams, events, cafés and bands</p></div>
+        <div class="price"><b>Custom</b></div>
+        <p class="price-note">Volume pricing from 24 pieces</p>
+        <ul>
+          <li class="plus"><svg><use href="#i-check"/></svg>Everything in Insider, plus:</li>
+          <li><svg><use href="#i-check"/></svg>Your own graphic, drawn by our artists</li>
+          <li><svg><use href="#i-check"/></svg>Tees, shirts or linen in one order</li>
+          <li><svg><use href="#i-check"/></svg>Physical samples before printing</li>
+          <li><svg><use href="#i-check"/></svg>Dedicated order manager</li>
+          <li><svg><use href="#i-check"/></svg>Guaranteed delivery date</li>
+        </ul>
+        <a class="btn btn-secondary" href="#final">Talk to Us</a>
+      </article>
+    </div>
+    <div class="assure">
+      <span><svg><use href="#i-check"/></svg>No card needed for Crew</span>
+      <span><svg><use href="#i-check"/></svg>Cancel Insider anytime</span>
+      <span><svg><use href="#i-check"/></svg>30-day money-back guarantee</span>
+    </div>
+    <div class="compare-wrap">
+      <details class="cmp">
+        <summary>Compare every membership feature <svg><use href="#i-chev"/></svg></summary>
+        <div class="tbl-wrap">
+          <table>
+            <thead><tr><th scope="col">Feature</th><th scope="col">Crew</th><th scope="col">Insider</th><th scope="col">Crew Orders</th></tr></thead>
+            <tbody>
+              <tr class="cat"><td colspan="4">Shopping</td></tr>
+              <tr><td>Access to drops</td><td>At launch</td><td>24 hrs early</td><td>24 hrs early</td></tr>
+              <tr><td>Member discount</td><td class="no">—</td><td>10%</td><td>Volume pricing</td></tr>
+              <tr><td>Members-only graphic</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr class="cat"><td colspan="4">Shipping &amp; returns</td></tr>
+              <tr><td>Free shipping</td><td>Over $75</td><td>Every order</td><td>Every order</td></tr>
+              <tr><td>Free size swaps</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr class="cat"><td colspan="4">Support</td></tr>
+              <tr><td>Chat support</td><td class="yes" aria-label="Yes">✓</td><td>Priority</td><td>Dedicated manager</td></tr>
+              <tr><td>Guaranteed delivery date</td><td class="no" aria-label="No">✕</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr class="cat"><td colspan="4">Custom work</td></tr>
+              <tr><td>Custom graphic design</td><td class="no" aria-label="No">✕</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
+              <tr><td>Pre-production samples</td><td class="no" aria-label="No">✕</td><td class="no" aria-label="No">✕</td><td class="yes" aria-label="Yes">✓</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+    <div class="faq">
+      <details><summary>Can I switch between Crew and Insider?</summary><p>Yes. Upgrade or downgrade from your account page at any time. If you move up in the middle of a yearly plan, the price is prorated.</p></details>
+      <details><summary>What's included in the free trial?</summary><p>Every Insider perk for 30 days, including early access and free swaps. Cancel before day 30 and you won't be charged.</p></details>
+      <details><summary>Do you offer student discounts?</summary><p>Students get Insider at half price with a valid .edu email. Schools and nonprofits can ask about Crew Order pricing.</p></details>
+      <details><summary>What is the minimum for Crew Orders?</summary><p>24 pieces per design. From 100 pieces we quote custom volume pricing and can mix tees, shirts and linen.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9. PAYMENTS & SECURITY -->
+<section class="trustsec" id="trust">
+  <div class="wrap split">
+    <div class="panel rise">
+      <span class="eyebrow">Checkout</span>
+      <h2>Pay the Way You Already Do</h2>
+      <div class="pay-grid">
+        <div class="pay">Visa</div><div class="pay">Mastercard</div><div class="pay">Amex</div><div class="pay">Discover</div>
+        <div class="pay">PayPal</div><div class="pay">Apple Pay</div><div class="pay">Google Pay</div><div class="pay">Shop Pay</div>
+        <div class="pay">Klarna</div><div class="pay">Afterpay</div><div class="pay">UPI</div><div class="pay">Gift Cards</div>
+      </div>
+      <a class="more" href="#pricing">See shipping regions and payment options →</a>
+    </div>
+    <div class="panel rise">
+      <span class="eyebrow">Our promises</span>
+      <h2>Safe Checkout, Honest Fabric</h2>
+      <div class="shields">
+        <div class="shield"><svg viewBox="0 0 60 70" aria-hidden="true"><path d="M30 3l25 9v20c0 17-11 29-25 35C16 61 5 49 5 32V12z" fill="#1F2A44"/><text x="30" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#F2EBDF" font-family="Inter,sans-serif">SSL</text></svg>Encrypted checkout</div>
+        <div class="shield"><svg viewBox="0 0 60 70" aria-hidden="true"><path d="M30 3l25 9v20c0 17-11 29-25 35C16 61 5 49 5 32V12z" fill="#8C2F39"/><text x="30" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#F2EBDF" font-family="Inter,sans-serif">PCI</text></svg>Card data never stored</div>
+        <div class="shield"><svg viewBox="0 0 60 70" aria-hidden="true"><path d="M30 3l25 9v20c0 17-11 29-25 35C16 61 5 49 5 32V12z" fill="#D2542B"/><text x="30" y="40" text-anchor="middle" font-size="11" font-weight="700" fill="#F2EBDF" font-family="Inter,sans-serif">30d</text></svg>Free returns</div>
+        <div class="shield"><svg viewBox="0 0 60 70" aria-hidden="true"><path d="M30 3l25 9v20c0 17-11 29-25 35C16 61 5 49 5 32V12z" fill="#2E7D4F"/><path d="M30 46V28m0 0c0-6 5-9 10-9 0 6-5 9-10 9zm0 6c0-5-4-8-9-8 0 5 4 8 9 8z" fill="none" stroke="#F2EBDF" stroke-width="2.5" stroke-linecap="round"/></svg>Water-based inks</div>
+      </div>
+      <ul class="sec-list">
+        <li><svg><use href="#i-check"/></svg>256-bit encrypted payments</li>
+        <li><svg><use href="#i-check"/></svg>Payments run through certified processors</li>
+        <li><svg><use href="#i-check"/></svg>We never sell your data</li>
+        <li><svg><use href="#i-check"/></svg>Fabric sourcing listed on every product</li>
+      </ul>
+      <a class="more" href="#footer">Read our privacy and sourcing notes →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 10. LOOKBOOK VIDEO -->
+<section class="section" id="lookbook">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Lookbook film</span>
+      <h2>See Rogue&amp;Co in Action</h2>
+      <p class="lede">A short walk through Drop 07: how the prints are made, how the fits compare, and how to build a full outfit from four pieces.</p>
+    </div>
+    <div class="player">
+      <div class="screen" id="screen">
+        <div class="scene on" data-cap="Every print starts as a pencil sketch from one of our artists.">
+          <div><h3>01 · The Sketch</h3><p>Night Tide, drawn by hand, printed in water-based ink.</p></div>
+          <svg viewBox="0 0 300 300" aria-hidden="true"><use href="#i-tee" fill="#F2EBDF"/><circle cx="150" cy="150" r="42" fill="url(#g-sun)"/></svg>
+        </div>
+        <div class="scene" data-cap="We cut to real measurements, so size M means the same thing every drop.">
+          <div><h3>02 · The Fit</h3><p>Slim, regular and relaxed, compared side by side.</p></div>
+          <svg viewBox="0 0 300 300" aria-hidden="true"><g transform="translate(-20 20) scale(.8)"><use href="#i-tee" fill="#1F2A44"/></g><g transform="translate(80 20) scale(.8)"><use href="#i-tee" fill="#8C2F39"/></g></svg>
+        </div>
+        <div class="scene" data-cap="Raw denim fades to your routine. Linen keeps you cool.">
+          <div><h3>03 · The Staples</h3><p>13.5 oz denim and European linen.</p></div>
+          <svg viewBox="0 0 300 300" aria-hidden="true"><path d="M90 30h120l15 250h-58l-17-160-17 160H75z" fill="#1F2A44"/><path d="M90 55h120" stroke="#C8B49A" stroke-width="3" stroke-dasharray="6 5"/></svg>
+        </div>
+        <div class="scene" data-cap="Graphic tee, open linen shirt, straight jeans. One outfit, four seasons.">
+          <div><h3>04 · The Fit Check</h3><p>Build Your Fit: four pieces, one outfit.</p></div>
+          <svg viewBox="0 0 300 300" aria-hidden="true"><path d="M95 42l36-12 19 30 19-30 36 12 55 40-26 42-24-14v157H90V110l-24 14-26-42z" fill="#C8B49A"/><path d="M130 55h40v210h-40z" fill="#F2EBDF"/><circle cx="150" cy="130" r="16" fill="url(#g-sun)"/></svg>
+        </div>
+        <div class="cc" id="cc" hidden></div>
+        <button class="poster" id="poster" aria-label="Play lookbook film"><span><svg><use href="#i-play"/></svg></span></button>
+      </div>
+      <div class="controls">
+        <button id="playBtn" aria-label="Play">▶</button>
+        <div class="prog" aria-hidden="true"><i id="progBar"></i></div>
+        <span class="time" id="time">0:00 / 2:40</span>
+        <button id="ccBtn" aria-pressed="true" aria-label="Captions">CC</button>
+      </div>
+    </div>
+    <div class="chapters" id="chapters">
+      <button data-i="0" class="on"><b>0:00</b><span>The Sketch</span></button>
+      <button data-i="1"><b>0:40</b><span>The Fit</span></button>
+      <button data-i="2"><b>1:20</b><span>The Staples</span></button>
+      <button data-i="3"><b>2:00</b><span>The Fit Check</span></button>
+    </div>
+    <div class="after-video">
+      <p class="lede">Ready to find your size? Take the 60-second Fit Finder and we'll match you across every cut.</p>
+      <a class="btn btn-primary" href="#calculator">Find My Fit</a>
+    </div>
+  </div>
+</section>
+
+<!-- 11. FINAL CTA -->
+<section class="final" id="final">
+  <img class="ph" src="images/shirts.jpg" alt="" loading="lazy" onerror="this.remove()" style="z-index:0">
+  <div class="wrap">
+    <h2>Ready to Wear Something With a Point of View?</h2>
+    <p>Drop 07 is live and each print stops at 300. Join the Rogue Club free and get your first order shipped on us.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a class="btn btn-primary btn-lg" href="#features">Shop the Drop</a>
+      <a class="btn btn-secondary btn-lg" href="#pricing">Start Insider Trial</a>
+    </div>
+    <div class="assure">
+      <span><svg><use href="#i-check"/></svg>30-day returns</span>
+      <span><svg><use href="#i-check"/></svg>Free size swaps</span>
+      <span><svg><use href="#i-check"/></svg>Ships in 48 hours</span>
+      <span><svg><use href="#i-check"/></svg>Cancel anytime</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- 12. FOOTER -->
+<footer id="footer">
+  <div class="wrap">
+    <div class="news">
+      <div><h3>Get the next drop first</h3><p>New prints, restock alerts and artist stories. Twice a month, no spam.</p></div>
+      <form id="newsForm" novalidate>
+        <label class="sr" for="newsEmail">Email address</label>
+        <input class="input" id="newsEmail" type="email" placeholder="you@email.com" autocomplete="email">
+        <button class="btn btn-primary" type="submit">Subscribe</button>
+        <span class="err" id="newsErr" role="alert" style="flex-basis:100%"></span>
+      </form>
+    </div>
+    <div class="fcols">
+      <div class="fcol">
+        <a class="logo" href="#top">Rogue<em>&amp;</em>Co</a>
+        <p class="tagline">Wear the attitude. Keep the comfort.</p>
+        <div class="social">
+          <a href="#footer" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="#footer" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M14 3v11.5a3.5 3.5 0 11-3.5-3.5M14 3c.5 3 2.5 5 5.5 5"/></svg></a>
+          <a href="#footer" aria-label="Pinterest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M11 8.5c3-1 5 .8 4.5 3.2-.4 2-2.5 3-4 2M11.5 10l-2.5 11"/></svg></a>
+          <a href="#footer" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div class="fcol"><details open><summary><h4>Shop</h4></summary><ul><li><a href="#features">Graphic Tees</a></li><li><a href="#features">Shirts</a></li><li><a href="#features">Jeans</a></li><li><a href="#features">Linen</a></li><li><a href="#features">Past Drops</a></li></ul></details></div>
+      <div class="fcol"><details open><summary><h4>Help</h4></summary><ul><li><a href="#calculator">Fit Finder</a></li><li><a href="#pricing">Shipping &amp; Returns</a></li><li><a href="#features">Fabric &amp; Care</a></li><li><a href="#pricing">Order Tracking</a></li><li><a href="#pricing">Contact Us</a></li></ul></details></div>
+      <div class="fcol"><details open><summary><h4>Company</h4></summary><ul><li><a href="#solution">About Us</a></li><li><a href="#stories">Our Artists</a></li><li><a href="#pricing">Crew Orders</a></li><li><a href="#footer">Careers</a></li><li><a href="#footer">Press Kit</a></li></ul></details></div>
+      <div class="fcol"><details open><summary><h4>Legal</h4></summary><ul><li><a href="#footer">Privacy Policy</a></li><li><a href="#footer">Terms of Service</a></li><li><a href="#footer">Cookie Policy</a></li><li><a href="#footer">Accessibility</a></li><li><a href="#footer">Returns Policy</a></li></ul></details></div>
+    </div>
+    <div class="fbottom"><span>© 2026 Rogue&amp;Co. All rights reserved.</span><span>Prototype storefront · Brand concept for ISM 6427C · Photos from Unsplash</span></div>
+  </div>
+</footer>
+
+
+<script src="/js/main.js" defer></script>
+</body>
+</html>
