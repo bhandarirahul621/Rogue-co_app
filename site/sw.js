@@ -1,12 +1,14 @@
 /* Rogue&Co service worker: caches the storefront so it opens offline and installs as an app.
    Bump CACHE whenever you change files in this folder so visitors get the new version. */
-const CACHE = 'rogueco-v1';
+const CACHE = 'rogueco-v2';
 const ASSETS = [
   '/',
   '/index.html',
   '/404.html',
   '/css/styles.css',
   '/js/main.js',
+  '/js/auth.js',
+  '/js/vendor/supabase.js',
   '/favicon.svg',
   '/manifest.webmanifest',
   '/icons/icon-192.png',
@@ -36,6 +38,12 @@ self.addEventListener('fetch', e => {
   const req = e.request;
   if (req.method !== 'GET') return;
 
+  // Only handle this site's own files and Google Fonts. Everything else (notably Supabase sign-in
+  // requests) goes straight to the network so login state is never served from a stale cache.
+  const host = new URL(req.url).hostname;
+  const sameSite = host === self.location.hostname;
+  if (!sameSite && host !== 'fonts.googleapis.com' && host !== 'fonts.gstatic.com') return;
+
   // Pages: try the network first so updates show up, fall back to the cached copy offline.
   if (req.mode === 'navigate') {
     e.respondWith(
@@ -46,7 +54,7 @@ self.addEventListener('fetch', e => {
     return;
   }
 
-  // Everything else (CSS, JS, images, Google Fonts): serve from cache, fetch and store on a miss.
+  // Site files and fonts: serve from cache, fetch and store on a miss.
   e.respondWith(
     caches.match(req).then(hit => hit || fetch(req).then(res => {
       if (res.ok || res.type === 'opaque') {

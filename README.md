@@ -13,6 +13,8 @@ Rogue-co_app/
     ├── 404.html            ← shown when someone visits a link that doesn't exist
     ├── css/styles.css      ← all the styling (colors, fonts, layout)
     ├── js/main.js          ← interactive parts: menu, calculator, pricing toggle, lookbook player
+    ├── js/auth.js          ← customer accounts: sign up, sign in, sign out, password reset (Supabase)
+    ├── js/vendor/          ← the Supabase library, bundled so the site doesn't depend on a CDN
     ├── sw.js               ← service worker: lets the site work offline and install as an app
     ├── manifest.webmanifest← app name, colors and icons for "Add to Home Screen"
     ├── favicon.svg         ← browser-tab icon
@@ -53,6 +55,29 @@ npx serve site
 ```
 
 Then open the address it prints (usually http://localhost:3000).
+
+## Accounts (sign up / sign in)
+
+Customers can create an account and sign in with email and password. This uses **Supabase Auth** (project "Rahul").
+
+- **Where it lives:** `site/js/auth.js` (the logic) and the `<dialog id="authDialog">` block near the top of `site/index.html` (the form).
+- **What's included:** sign up (with first name), sign in, sign out, "forgot password" emails, and setting a new password from that email.
+- **Where users are stored:** Supabase dashboard → **Authentication → Users**. No database tables are needed for login.
+- The Supabase URL and *publishable* key in `auth.js` are meant to be public. Never put the `service_role` / secret key in this site.
+
+### One-time Supabase setup (required for the email links to work)
+
+In the Supabase dashboard → **Authentication → URL Configuration**:
+
+1. **Site URL:** your live Netlify address, e.g. `https://rogueco-store.netlify.app`
+2. **Redirect URLs:** add the same address followed by `/**` (e.g. `https://rogueco-store.netlify.app/**`), plus `http://localhost:3000/**` if you test locally.
+
+Without this, the "confirm your email" and "reset password" links send people to `localhost` instead of your store.
+
+### Good to know
+
+- **Email confirmation** is on by default: new users must click a link in their inbox before they can sign in. You can turn it off under **Authentication → Sign In / Providers → Email → Confirm email**.
+- **Email limits:** Supabase's built-in email sender is for testing and only sends a few emails per hour. Before real customers sign up, connect your own email provider under **Authentication → Emails → SMTP Settings** (e.g. Resend, SendGrid, Amazon SES).
 
 ## Making changes
 

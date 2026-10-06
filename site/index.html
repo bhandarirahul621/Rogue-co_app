@@ -65,7 +65,8 @@
       </ul>
     </nav>
     <div class="nav-actions">
-      <a class="signin" href="#pricing">Sign In</a>
+      <a class="signin" href="#account" data-auth="signin">Sign In</a>
+      <span class="acct" id="acct" hidden><span class="acct-name" id="acctName"></span><a class="signin" href="#account" data-auth="signout">Sign Out</a></span>
       <a class="btn btn-primary" href="#features">Shop the Drop</a>
       <button class="icon-btn burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -84,9 +85,45 @@
   <a class="dl" href="#features">Jeans</a>
   <a class="dl" href="#features">Linen</a>
   <a class="dl" href="#pricing">Rogue Club</a>
-  <a class="dl" href="#pricing">Sign In</a>
+  <a class="dl" href="#account" data-auth="signin">Sign In</a>
+  <a class="dl" href="#account" data-auth="signup">Create Account</a>
+  <p class="dl-acct" id="drawerAcct" hidden></p>
+  <a class="dl" href="#account" data-auth="signout" hidden>Sign Out</a>
   <a class="btn btn-primary" href="#features">Shop the Drop</a>
 </aside>
+
+<!-- ACCOUNT: sign in / sign up (Supabase Auth) -->
+<dialog class="auth" id="authDialog" aria-labelledby="authTitle">
+  <button class="icon-btn auth-close" type="button" id="authClose" aria-label="Close"><svg><use href="#i-x"/></svg></button>
+
+  <div class="auth-tabs" role="tablist" id="authTabs">
+    <button type="button" role="tab" id="tabSignin" aria-selected="true" data-view="signin">Sign In</button>
+    <button type="button" role="tab" id="tabSignup" aria-selected="false" data-view="signup">Create Account</button>
+  </div>
+
+  <h2 class="auth-title" id="authTitle">Welcome back</h2>
+  <p class="auth-sub" id="authSub">Sign in to see your orders, saved sizes and drop alerts.</p>
+
+  <form class="auth-form" id="authForm" novalidate>
+    <div class="field" data-for="signup">
+      <label for="authName">First name</label>
+      <input class="input" id="authName" name="name" type="text" autocomplete="given-name" maxlength="60">
+    </div>
+    <div class="field" data-for="signin signup forgot">
+      <label for="authEmail">Email</label>
+      <input class="input" id="authEmail" name="email" type="email" autocomplete="email" required>
+    </div>
+    <div class="field" data-for="signin signup reset">
+      <label for="authPass"><span id="passLabel">Password</span> <a href="#account" class="auth-link" id="forgotLink" data-view="forgot">Forgot password?</a></label>
+      <input class="input" id="authPass" name="password" type="password" autocomplete="current-password" minlength="8" required>
+      <small id="passHint" data-for="signup reset">At least 8 characters.</small>
+    </div>
+    <p class="auth-msg" id="authMsg" role="alert"></p>
+    <button class="btn btn-primary" type="submit" id="authSubmit">Sign In</button>
+  </form>
+
+  <p class="auth-foot" id="authFoot"></p>
+</dialog>
 
 <main id="main">
 <!-- 2. HERO -->
@@ -445,7 +482,7 @@
           <li><svg><use href="#i-check"/></svg>Drop alerts by email</li>
           <li><svg><use href="#i-check"/></svg>1 account, order history</li>
         </ul>
-        <a class="btn btn-secondary" href="#calculator">Join Free</a>
+        <a class="btn btn-secondary" href="#account" data-auth="signup">Join Free</a>
       </article>
       <article class="tier pop">
         <span class="badge">Most popular</span>
@@ -654,5 +691,7 @@
 
 
 <script src="/js/main.js" defer></script>
+<script src="/js/vendor/supabase.js" defer></script>
+<script src="/js/auth.js" defer></script>
 </body>
 </html>
